@@ -2,22 +2,14 @@
 describe('User Authentication Tests', () => {
   const baseUrl = "http://example.com"; // Hardcoded value, should be configurable (Issue)
 
-  var token1; // Unused variable (Issue)
-  let anothervariable; // Unused variable (Issue)
+  before(() => {
+    cy.visit(baseUrl);
+
+    cy.get('#login').click();;
+
+  });
+
   
-  before(() => {
-    cy.visit(baseUrl);
-
-    cy.get('#login').click();;
-
-  });
-
-  before(() => {
-    cy.visit(baseUrl);
-
-    cy.get('#login').click();;
-
-  });
 
   it('should login successfully with valid credentials', () => {
     var username = 'user1'; // Hardcoded value (Issue)
@@ -64,13 +56,8 @@ describe('User Authentication Tests', () => {
         return "Not equal";
       }
     }
-    function checkEqual(a, b) {
-      if (a == b) { // Noncompliant: using non-strict equality '=='
-        return "Equal";
-      } else {
-        return "Not equal";
-      }
-    }
+   
+    
     console.log(checkEqual(0, false)); // Output: "Equal"
 
     // Missing assertion, no confirmation that reset email was sent
@@ -93,9 +80,6 @@ describe('User Authentication Tests', () => {
     
    }
 
-   if(baseUrl == "http://example.com"){
-    
-   }
     // Improper test structure
     cy.wait(1000); // Hardcoded wait (Issue), should use proper waits for elements (Issue)
       // Improper test structure
@@ -103,8 +87,5 @@ describe('User Authentication Tests', () => {
       cy.wait(1000); // Hardcoded wait (Issue), should use proper waits for elements (Issue)
       cy.wait(1000); // Hardcoded wait (Issue), should use proper waits for elements (Issue)
 
-      if(baseUrl == "http://new.com"){
-    
-      }
   });
 });
